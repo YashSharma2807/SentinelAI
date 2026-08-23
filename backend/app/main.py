@@ -9,7 +9,6 @@ from app.database.database import engine
 from app.database.database import Base
 from app.database import models
 
-
 app = FastAPI(
     title=settings.APP_NAME,
     description="AI-Powered Security Log Analyzer",
@@ -20,20 +19,10 @@ app = FastAPI(
 Base.metadata.create_all(bind=engine)
 
 # CORS Configuration
-origins = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "http://localhost:5174",
-    "http://127.0.0.1:5174",
-
-    # Vercel Production
-    "https://sentinel-ai-steel-alpha.vercel.app",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
+    allow_origin_regex=r"https://.*\.vercel\.app",
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
