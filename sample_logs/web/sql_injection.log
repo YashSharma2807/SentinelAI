@@ -1,0 +1,4 @@
+192.168.1.10 - - [22/Aug/2026:22:15:10 +0530] "GET /login.php?username=admin' OR '1'='1&password=test HTTP/1.1" 200 1024
+192.168.1.10 - - [22/Aug/2026:22:15:12 +0530] "GET /search.php?q=UNION SELECT username,password FROM users HTTP/1.1" 200 2048
+192.168.1.10 - - [22/Aug/2026:22:15:15 +0530] "GET /products.php?id=1;DROP TABLE users HTTP/1.1" 500 512
+192.168.1.10 - - [22/Aug/2026:22:15:18 +0530] "GET /login.php?id=1 AND SLEEP(5) HTTP/1.1" 200 512

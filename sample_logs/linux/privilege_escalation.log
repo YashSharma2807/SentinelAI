@@ -1,0 +1,4 @@
+Aug 22 20:15:01 sentinel sudo:    yash : TTY=pts/0 ; PWD=/home/yash ; USER=root ; COMMAND=/bin/bash
+Aug 22 20:15:05 sentinel sudo:    yash : TTY=pts/0 ; PWD=/home/yash ; USER=root ; COMMAND=/usr/bin/apt update
+Aug 22 20:16:20 sentinel su: Successful su for root by yash
+Aug 22 20:17:10 sentinel usermod: user hacker added to group sudo

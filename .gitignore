@@ -2,15 +2,34 @@
 __pycache__/
 *.py[cod]
 *.pyo
+*.pyd
 
-# Virtual Environment
+# Virtual Environments
 .venv/
+venv/
+backend/.venv/
+
+# SQLite
+*.db
+*.sqlite3
+
+# Uploads
+backend/uploads/
 
 # Environment Variables
 .env
 
+# Node
+node_modules/
+frontend/node_modules/
+
+# Build
+dist/
+frontend/dist/
+
 # VS Code
 .vscode/
 
-# macOS/Linux
+# macOS / Windows
 .DS_Store
+Thumbs.db
