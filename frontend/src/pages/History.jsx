@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL?.replace(/\/$/, "") ?? "";
 
 export default function History() {
   const [history, setHistory] = useState([]);
@@ -13,6 +13,16 @@ export default function History() {
   }, []);
 
   const fetchHistory = async () => {
+    if (!API_URL) {
+      console.error("VITE_API_URL is missing");
+      alert("Frontend API URL is not configured.");
+      setLoading(false);
+      return;
+    }
+
+    console.log("API_URL:", API_URL);
+    console.log("History URL:", `${API_URL}/logs/history`);
+
     try {
       const response = await axios.get(
         `${API_URL}/logs/history`

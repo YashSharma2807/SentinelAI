@@ -2,7 +2,7 @@ import { UploadCloud } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL?.replace(/\/$/, "") ?? "";
 
 export default function UploadArea({ setAnalysis }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -18,19 +18,34 @@ export default function UploadArea({ setAnalysis }) {
       return;
     }
 
+    if (!API_URL) {
+      console.error("VITE_API_URL is missing");
+      alert("Frontend API URL is not configured.");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("file", selectedFile);
 
     console.log("API_URL:", API_URL);
     console.log("Upload URL:", `${API_URL}/logs/upload`);
+    console.log("Axios config:", {
+      method: "POST",
+      url: `${API_URL}/logs/upload`,
+      withCredentials: false,
+    });
     console.log("Selected File:", selectedFile);
+    console.log("FormData entries:", [...formData.entries()]);
 
     try {
       setLoading(true);
 
       const response = await axios.post(
         `${API_URL}/logs/upload`,
-        formData
+        formData,
+        {
+          withCredentials: false,
+        }
       );
 
       console.log("Backend Response:", response.data);

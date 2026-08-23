@@ -18,10 +18,17 @@ app = FastAPI(
 # Create SQLite tables automatically
 Base.metadata.create_all(bind=engine)
 
+allowed_origins = [
+    origin.strip()
+    for origin in [settings.FRONTEND_ORIGIN]
+    if origin and origin.strip()
+]
+
 # CORS Configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=r"https://.*\.vercel\.app",
+    allow_origins=allowed_origins,
+    allow_origin_regex=settings.FRONTEND_ORIGIN_REGEX,
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
