@@ -2,6 +2,8 @@ import { UploadCloud } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function UploadArea({ setAnalysis }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -23,7 +25,7 @@ export default function UploadArea({ setAnalysis }) {
       setLoading(true);
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/logs/upload",
+        `${API_URL}/logs/upload`,
         formData,
         {
           headers: {
@@ -32,7 +34,6 @@ export default function UploadArea({ setAnalysis }) {
         }
       );
 
-      // ⭐ IMPORTANT
       console.log("Backend Response:", response.data);
 
       setAnalysis(response.data);

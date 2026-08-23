@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function History() {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,10 +15,11 @@ export default function History() {
   const fetchHistory = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/logs/history"
+        `${API_URL}/logs/history`
       );
 
       setHistory(response.data);
+
     } catch (error) {
       console.error(error);
       alert("Failed to load history.");
