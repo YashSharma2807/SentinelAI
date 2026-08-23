@@ -21,17 +21,16 @@ export default function UploadArea({ setAnalysis }) {
     const formData = new FormData();
     formData.append("file", selectedFile);
 
+    console.log("API_URL:", API_URL);
+    console.log("Upload URL:", `${API_URL}/logs/upload`);
+    console.log("Selected File:", selectedFile);
+
     try {
       setLoading(true);
 
       const response = await axios.post(
         `${API_URL}/logs/upload`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+        formData
       );
 
       console.log("Backend Response:", response.data);
@@ -39,11 +38,18 @@ export default function UploadArea({ setAnalysis }) {
       setAnalysis(response.data);
 
     } catch (error) {
-      console.error(error);
+
+      console.error("Axios Error:", error);
 
       if (error.response) {
-        console.log(error.response.data);
-        alert(JSON.stringify(error.response.data));
+        console.log("Status:", error.response.status);
+        console.log("Headers:", error.response.headers);
+        console.log("Data:", error.response.data);
+
+        alert(`Request failed with status ${error.response.status}`);
+      } else if (error.request) {
+        console.log("Request:", error.request);
+        alert("Network Error - Request sent but no valid response received.");
       } else {
         alert(error.message);
       }
