@@ -43,35 +43,45 @@ The platform combines rule-based threat detection with Large Language Models (Gr
 
 ## Screenshots
 
-### Home
+The following screenshots showcase the key features and user interface of SentinelAI.
 
-![Home](screenshots/01-home.png)
+### Home Page
 
----
+The landing page provides an overview of SentinelAI and its core capabilities.
 
-### Upload Log
-
-![Upload](screenshots/02-upload-page.png)
+![Home Page](screenshots/01-home.png)
 
 ---
 
-### Analysis Report
+### Dashboard
 
-![Analysis](screenshots/03-analysis-report.png)
+The main dashboard provides quick access to log analysis, security reports, and navigation.
+
+![Dashboard](screenshots/02-home.png)
+
+---
+
+### Log Upload
+
+Upload Linux, Windows, or Web Server log files for automated threat analysis.
+
+![Upload Log](screenshots/03-upload.png)
+
+---
+
+### AI Analysis Report
+
+Generated incident report containing detected threats, severity assessment, MITRE ATT&CK mapping, and remediation recommendations.
+
+![Analysis Report](screenshots/04-analysis-report.png)
 
 ---
 
 ### Analysis History
 
-![History](screenshots/04-history-page.png)
+View previously analyzed logs and generated reports stored in the application database.
 
----
-
-### API Documentation
-
-![Swagger](screenshots/05-swagger-api.png)
-
----
+![Analysis History](screenshots/05-history-page.png)
 
 ## System Architecture
 
