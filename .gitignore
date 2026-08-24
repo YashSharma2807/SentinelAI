@@ -33,3 +33,31 @@ frontend/dist/
 # macOS / Windows
 .DS_Store
 Thumbs.db
+# ===========================
+# Runtime uploads
+# ===========================
+uploads/
+
+# ===========================
+# Python
+# ===========================
+backend/__pycache__/
+backend/.venv/
+*.pyc
+
+# ===========================
+# SQLite
+# ===========================
+*.db
+*.sqlite3
+
+# ===========================
+# Node
+# ===========================
+frontend/node_modules/
+
+# ===========================
+# Environment Variables
+# ===========================
+.env
+.env.*
